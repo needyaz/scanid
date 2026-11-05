@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Add pub.dev topics (`ocr`, `barcode`, `scanner`, `mrz`, `document-scanner`) for discoverability. No code changes.
+
 ## 0.1.0
 
 - Initial release. On-device OCR, barcode scanning, and document-edge

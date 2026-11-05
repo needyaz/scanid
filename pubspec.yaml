@@ -1,8 +1,14 @@
 name: scanid
 description: "Free, open-source on-device OCR, barcode scanning, and document-edge detection, plus AAMVA driver's-license and ICAO MRZ decoders. No server calls, no license fee."
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/needyaz/scanid
 repository: https://github.com/needyaz/scanid
+topics:
+  - ocr
+  - barcode
+  - scanner
+  - mrz
+  - document-scanner
 
 environment:
   sdk: ^3.11.3
