@@ -16,7 +16,7 @@ Free, open-source on-device OCR, barcode scanning, and document-edge detection, 
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.frameworks = 'Vision'
-  s.platform = :ios, '13.0'
+  s.platform = :ios, '15.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

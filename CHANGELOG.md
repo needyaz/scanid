@@ -1,3 +1,7 @@
+## Unreleased
+
+- The minimum supported iOS version is now 15.0.
+
 ## 0.1.1
 
 - Add pub.dev topics (`ocr`, `barcode`, `scanner`, `mrz`, `document-scanner`) for discoverability. No code changes.
