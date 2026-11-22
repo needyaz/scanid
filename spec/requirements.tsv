@@ -1,0 +1,29 @@
+id	status	source	statement	test
+AAMVA-1	C	lib/src/aamva.dart	Parse returns null unless the text contains ANSI or AAMVA.	test/aamva_test.dart
+AAMVA-2	U	lib/src/aamva.dart	Parse returns null when no number, first name or last name is found.	
+AAMVA-3	C	lib/src/aamva.dart	Element codes match only at line start or in the header line, never inside a value.	test/aamva_test.dart
+AAMVA-4	U	lib/src/aamva.dart	Blank and NONE values are treated as absent.	
+AAMVA-5	C	lib/src/aamva.dart	Output keys are number, name, date_of_birth, expires, sex, class and address when present.	test/aamva_test.dart
+AAMVA-6	C	lib/src/aamva.dart	Name is first, middle, last title-cased from DAC/DCT, DAD, DCS/DAB.	test/aamva_test.dart
+AAMVA-7	C	lib/src/aamva.dart	Legacy payloads take the name from a single comma-separated DAA field.	test/aamva_test.dart
+AAMVA-8	C	lib/src/aamva.dart	8-digit dates read as MMDDCCYY or CCYYMMDD and output as ISO.	test/aamva_test.dart
+AAMVA-9	C	lib/src/aamva.dart	Sex maps 1/M to M and 2/F to F, otherwise omitted.	test/aamva_test.dart
+AAMVA-10	C	lib/src/aamva.dart	Address is title-cased street, city and state.	test/aamva_test.dart
+MRZ-1	C	lib/src/mrz.dart	TD3 passport MRZ is parsed into all fields.	test/mrz_test.dart
+MRZ-2	C	lib/src/mrz.dart	TD1 ID card MRZ is parsed with the name on line 3.	test/mrz_test.dart
+MRZ-3	C	lib/src/mrz.dart	TD2 MRZ is parsed with the name on line 1.	test/mrz_test.dart
+MRZ-4	C	lib/src/mrz.dart	Surrounding text and OCR spacing are ignored.	test/mrz_test.dart
+MRZ-5	C	lib/src/mrz.dart	Parse returns null when no MRZ is present.	test/mrz_test.dart
+MRZ-6	C	lib/src/mrz.dart	numberValid reflects the document-number check digit and filler is stripped.	test/mrz_test.dart
+MRZ-7	C	lib/src/mrz.dart	Dates with a failed check digit or impossible day are dropped.	test/mrz_test.dart
+MRZ-8	U	lib/src/mrz.dart	Birth years pivot on nowYear; expiry is always 20YY.	
+MRZ-9	C	lib/src/mrz.dart	documentType is the first MRZ character.	test/mrz_test.dart
+MRZ-10	C	lib/src/mrz.dart	OCR repair rejoins split filler, pads short lines and maps guillemet and paren confusables.	test/mrz_test.dart
+MRZ-11	U	lib/src/mrz.dart	Digit look-alikes in country codes are mapped to letters.	
+MRZ-12	C	lib/src/mrz.dart	Names split at << and are title-cased; fullName is given then surname.	test/mrz_test.dart
+CAP-1	U	lib/src/capture_service.dart	recognize returns lines with text, confidence and box, and fullText joins them.	
+CAP-2	U	lib/src/capture_service.dart	recognize returns an empty result on null or platform errors.	
+CAP-3	U	lib/src/capture_service.dart	recognizeBarcodes returns payloads or an empty list on null or errors.	
+CAP-4	U	lib/src/capture_service.dart	detectDocumentRect returns a normalized rect or null on null or errors.	
+CAP-5	U	lib/src/capture_service.dart	Base CaptureService defaults barcodes to empty and document rect to null.	
+CAP-6	U	lib/src/capture_service.dart	FakeCaptureService returns canned results and can be built from lines.	
