@@ -16,10 +16,10 @@ MRZ-4	C	lib/src/mrz.dart	Surrounding text and OCR spacing are ignored.	test/mrz_
 MRZ-5	C	lib/src/mrz.dart	Parse returns null when no MRZ is present.	test/mrz_test.dart
 MRZ-6	C	lib/src/mrz.dart	numberValid reflects the document-number check digit and filler is stripped.	test/mrz_test.dart
 MRZ-7	C	lib/src/mrz.dart	Dates with a failed check digit or impossible day are dropped.	test/mrz_test.dart
-MRZ-8	U	lib/src/mrz.dart	Birth years pivot on nowYear; expiry is always 20YY.	
+MRZ-8	C	lib/src/mrz.dart	Birth years pivot on nowYear; expiry is always 20YY.	test/mrz_test.dart
 MRZ-9	C	lib/src/mrz.dart	documentType is the first MRZ character.	test/mrz_test.dart
 MRZ-10	C	lib/src/mrz.dart	OCR repair rejoins split filler, pads short lines and maps guillemet and paren confusables.	test/mrz_test.dart
-MRZ-11	U	lib/src/mrz.dart	Digit look-alikes in country codes are mapped to letters.	
+MRZ-11	C	lib/src/mrz.dart	Digit look-alikes in country codes are mapped to letters.	test/mrz_test.dart
 MRZ-12	C	lib/src/mrz.dart	Names split at << and are title-cased; fullName is given then surname.	test/mrz_test.dart
 CAP-1	U	lib/src/capture_service.dart	recognize returns lines with text, confidence and box, and fullText joins them.	
 CAP-2	U	lib/src/capture_service.dart	recognize returns an empty result on null or platform errors.	
