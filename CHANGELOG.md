@@ -1,5 +1,6 @@
 ## Unreleased
 
+- The Android plugin and example now build with AGP 9 (built-in Kotlin, JVM 17).
 - The minimum supported iOS version is now 15.0.
 
 ## 0.1.1

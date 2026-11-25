@@ -27,3 +27,5 @@ SCN-CAP-003	C	lib/src/capture_service.dart	recognizeBarcodes returns payloads or
 SCN-CAP-004	C	lib/src/capture_service.dart	detectDocumentRect returns a normalized rect or null on null or errors.	test/capture_service_test.dart: detectDocumentRect returns a rect or null on failure
 SCN-CAP-005	C	lib/src/capture_service.dart	Base CaptureService defaults barcodes to empty and document rect to null.	test/capture_service_test.dart: the base CaptureService defaults barcodes and document rect
 SCN-CAP-006	C	lib/src/capture_service.dart	FakeCaptureService returns canned results and can be built from lines.	test/capture_service_test.dart: FakeCaptureService returns canned results
+SCN-ANDROID-001	C	android/build.gradle.kts	The Android plugin and example build on AGP 9 with built-in Kotlin and a single JVM 17 target.	test/android_toolchain_test.dart: android modules use AGP 9 built-in Kotlin
+SCN-ANDROID-002	C	example/android/build.gradle.kts	The example app forces current androidx.test artifacts so AGP 9 accepts their namespaces.	test/android_toolchain_test.dart: example app forces current androidx.test artifacts

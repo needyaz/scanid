@@ -2,15 +2,14 @@ group = "io.needyaz.scanid"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    val kotlinVersion = "2.2.20"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.13.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.android.tools.build:gradle:9.1.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20")
     }
 }
 
@@ -34,10 +33,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     sourceSets {
@@ -67,6 +62,12 @@ android {
                 }
             }
         }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 

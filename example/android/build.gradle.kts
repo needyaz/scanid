@@ -3,6 +3,16 @@ allprojects {
         google()
         mavenCentral()
     }
+    // The SDK-bundled integration_test plugin pulls old androidx.test artifacts
+    // that share one namespace, which AGP 9 rejects.
+    configurations.all {
+        resolutionStrategy {
+            force("androidx.test.espresso:espresso-core:3.6.1")
+            force("androidx.test.espresso:espresso-idling-resource:3.6.1")
+            force("androidx.test:runner:1.6.2")
+            force("androidx.test:rules:1.6.1")
+        }
+    }
 }
 
 val newBuildDir: Directory =
