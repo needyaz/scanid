@@ -85,4 +85,30 @@ void main() {
     expect(f['name'], 'Pablo Luis Rodriguez Cortez');
     expect(f['date_of_birth'], '1976-10-07');
   });
+
+  test('returns null when no number or name can be found', () {
+    expect(Aamva.parse('@\n\rANSI 636000090002DL00410267\nDBC1\nDCAD\n'),
+        isNull);
+  });
+
+  test('treats blank and NONE values as absent', () {
+    final f = Aamva.parse('@\n\rANSI 636000090002DL00410267\n'
+        'DAQD12345678\nDCSDOE\nDACJOHN\nDADNONE\nDAG   \nDCANone\n')!;
+    expect(f['name'], 'John Doe');
+    expect(f.containsKey('class'), isFalse);
+    expect(f.containsKey('address'), isFalse);
+  });
+
+  test('drops invalid months and non-8-digit dates', () {
+    final f = Aamva.parse('@\n\rANSI 636000090002DL00410267\n'
+        'DAQD12345678\nDBB13451985\nDBA0131\n')!;
+    expect(f.containsKey('date_of_birth'), isFalse);
+    expect(f.containsKey('expires'), isFalse);
+  });
+
+  test('omits an unrecognised sex code', () {
+    final f = Aamva.parse('@\n\rANSI 636000090002DL00410267\n'
+        'DAQD12345678\nDBC9\n')!;
+    expect(f.containsKey('sex'), isFalse);
+  });
 }

@@ -5,6 +5,9 @@ decoders for AAMVA driver-license barcodes and ICAO 9303 machine-readable
 zones. Nothing is sent off the device. Requirement ids below match
 `spec/requirements.tsv`.
 
+Spec status: 28 requirements, 28 C (covered by a passing test), 0 U
+(uncovered).
+
 ## Public API
 
 Exported from `package:scanid/scanid.dart`: `Aamva`, `Mrz`, `CaptureService`,

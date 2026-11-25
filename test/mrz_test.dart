@@ -156,4 +156,34 @@ void main() {
     expect(m.fullName, 'Anna Maria Eriksson');
     expect(m.documentNumber, 'D23145890');
   });
+
+  test('returns null when both dates fail their check digits', () {
+    final bad = sample.replaceFirst('7408122F1204159', '7408123F1204158');
+    expect(Mrz.parse(bad, nowYear: 2026), isNull);
+  });
+
+  test('accepts 29 February only in a leap year', () {
+    // 000229 (2000, leap) with its valid check digit 9.
+    final leap = sample.replaceFirst('7408122', '0002299');
+    expect(Mrz.parse(leap, nowYear: 2026)!.dateOfBirth, '2000-02-29');
+    // 010229 (2001) with its valid check digit 2 is not a real date.
+    final nonLeap = sample.replaceFirst('7408122', '0102292');
+    expect(Mrz.parse(nonLeap, nowYear: 2026)!.dateOfBirth, isNull);
+  });
+
+  test('pivots the birth century on nowYear', () {
+    expect(Mrz.parse(sample, nowYear: 2080)!.dateOfBirth, '2074-08-12');
+  });
+
+  test('reports an unspecified sex as empty', () {
+    final m = Mrz.parse(sample.replaceFirst('F1204159', '<1204159'),
+        nowYear: 2026)!;
+    expect(m.sex, '');
+  });
+
+  test('maps digit look-alikes in country codes to letters', () {
+    final m = Mrz.parse(sample.replaceFirst('P<UTO', 'P<UT0'), nowYear: 2026)!;
+    expect(m.issuingCountry, 'UTO');
+    expect(m.nationality, 'UTO');
+  });
 }
